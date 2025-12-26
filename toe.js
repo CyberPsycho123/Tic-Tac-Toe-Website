@@ -27,11 +27,15 @@ boxes.forEach((box) => {
         if (!dont_click) {
             if (box.innerHTML == "") {
                 if (turn % 2 == 0) {
+                    sound.pause()
                     box.innerHTML = "X"
+                    sound.play()
                 }
                 else {
+                    sound.pause()
                     box.innerHTML = "O"
                     box.style.color = 'red'
+                    sound.play()
                 }
                 turn += 1
             }
@@ -50,6 +54,7 @@ const delay = (time) => {
 
 async function restart_game() {
     dont_click=true
+    game.play()
     await delay(2)
     dont_click=false
     flag = true
